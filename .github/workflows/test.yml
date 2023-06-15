@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     -name: get current date
-         run: date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
 
   job2:
     name: Second
