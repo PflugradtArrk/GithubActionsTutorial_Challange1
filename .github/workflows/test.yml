@@ -6,27 +6,25 @@ on:
 
 jobs:
   job1:
-    name: First
     runs-on: ubuntu-latest
     steps:
-    -name: get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+    - run: date
 
   job2:
-    name: Second
     runs-on: windows-latest
-	run: Get-Date
+    steps:
+    - run: date
 
 
   job3:
-    name: Third
     runs-on: macos-latest
-	run:
+    steps:
+    - run: date
 
 
   job4:
-    name: Fourth
-    runs-on: windows-latest
     needs: [job1, job2, job3]
+    runs-on: windows-latest
+    steps:
+    - run: date
 
